@@ -3,6 +3,8 @@ import Modal from "react-bootstrap/Modal";
 
 function EditEmployee(props) {
   const [show, setShow] = useState(false);
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -23,7 +25,7 @@ function EditEmployee(props) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Edit Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="w-full max-w-sm" id="edit-form">
@@ -41,7 +43,8 @@ function EditEmployee(props) {
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="name"
                   type="text"
-                  value="Jane Doe"
+                  value={props.name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
             </div>
@@ -60,7 +63,8 @@ function EditEmployee(props) {
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="role"
                   type="text"
-                  value="Jane Doe"
+                  value={props.role}
+                  onChange={(e) => setRole(e.target.value)}
                 />
               </div>
             </div>

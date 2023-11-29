@@ -19,7 +19,7 @@ function Employee(props) {
               Role : {props.role ? props.role : "No role"}
             </p>
           </div>
-          <EditEmployee />
+          <EditEmployee name={props.name} role={props.role} />
         </div>
       </div>
     </>
