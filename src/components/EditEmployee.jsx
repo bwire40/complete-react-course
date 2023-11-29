@@ -26,7 +26,7 @@ function EditEmployee(props) {
           <Modal.Title>Modal title</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className="w-full max-w-sm">
+          <form className="w-full max-w-sm" id="edit-form">
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">
                 <label
@@ -64,18 +64,6 @@ function EditEmployee(props) {
                 />
               </div>
             </div>
-
-            <div className="md:flex md:items-center">
-              <div className="md:w-1/3"></div>
-              <div className="md:w-2/3">
-                <button
-                  className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                  type="button"
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
@@ -87,6 +75,7 @@ function EditEmployee(props) {
           </button>
 
           <button
+            form="edit-form"
             className="px-4 py-1 text-sm text-purple-600 font-semibold 
           rounded-full border border-purple-200 hover:text-white 
           hover:bg-purple-600 hover:border-transparent focus:outline-none 

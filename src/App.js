@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Employee from "./components/Employee";
-
+import employeesData from "./data";
+import { v4 as uuidv4 } from "uuid";
 function App() {
   // use state
   const [role, setRole] = useState("");
-  let name = "bwie";
-  let img =
-    "https://images.unsplash.com/photo-1682686581030-7fa4ea2b96c3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8";
+  const [employee, setEmployee] = useState(employeesData);
   return (
     <>
       <input
@@ -15,10 +14,17 @@ function App() {
         placeholder="role"
         onChange={(e) => setRole(e.target.value)}
       />
-      <div className="flex flex-wrap">
-        <Employee name={name} img={img} role={role} />
-        <Employee name={name} img={img} />
-        <Employee name={name} img={img} />
+      <div className="container border-2 mx-auto w-full flex flex-wrap">
+        {employee.map((employee) => {
+          return (
+            <Employee
+              key={uuidv4()}
+              name={employee.name}
+              img={employee.img}
+              role={employee.role}
+            />
+          );
+        })}
       </div>
     </>
   );
